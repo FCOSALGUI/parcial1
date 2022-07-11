@@ -13,6 +13,19 @@
         Realiza todo lo anterior al hacer click en el botón. 
         */
 
+let mayusculas = document.getElementById("btn_mayusculas")
+mayusculas.addEventListener("click", toMinusculas)
+
+function toMinusculas(event) {
+  event.preventDefault()
+  let texto = document.getElementById("txt_may").value
+
+  document.getElementById("txt_may").value = texto.toLowerCase()
+
+}
+
+
+
 
       /*
         Crea una funcion llamada "calculateDogAge" que: 
@@ -25,6 +38,21 @@
            Deberás convertir el string a Entero. 
     
     */
+
+let btn_dog = document.getElementById("btn_edadhumano")
+
+btn_dog.addEventListener("click", calculateDogAge)
+
+function calculateDogAge(event) {
+  event.preventDefault()
+
+  let age_human = parseInt(document.getElementById("edad_humano").value)
+
+  let age_dog = age_human * 7
+
+  document.getElementById("edad_perro").value = age_dog
+
+}
 
 
 
@@ -45,3 +73,30 @@
        Registra un evento de "click", para que cuando se de click en el botón, se muestren las propiedades de cada objeto en el input correspondiente. 
 
      */
+
+function Pokemon(nombre, especie, ataque, defensa) {
+  this.nombre = nombre
+  this.especie = especie
+  this.ataque = ataque
+  this.defensa = defensa
+}
+
+var metapod = new Pokemon("Metapod", "Bicho", 10, 150)
+var puipui = new Pokemon("Pui Pui Molcar", "Normal", 1000, 60)
+
+let btn_pokemon = document.getElementById("btn_muestra")
+btn_pokemon.addEventListener("click", mostrarPokemon)
+
+function mostrarPokemon(event) {
+  event.preventDefault()
+  
+  document.getElementById("nombre_poke1").value = metapod.nombre
+  document.getElementById("especie_poke1").value = metapod.especie
+  document.getElementById("ataque_poke1").value = metapod.ataque.toString()
+  document.getElementById("defensa_poke1").value = metapod.defensa.toString()
+
+  document.getElementById("nombre_poke2").value = puipui['nombre']
+  document.getElementById("especie_poke2").value = puipui['especie']
+  document.getElementById("ataque_poke2").value = puipui['ataque'].toString()
+  document.getElementById("defensa_poke2").value = puipui['defensa'].toString()
+}
